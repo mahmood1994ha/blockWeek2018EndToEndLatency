@@ -22,7 +22,7 @@ public class EndToEndImplicitTest {
 		final File inputFile = new File("model-input/ChallengeModel_withCommImplementationTypev082.amxmi");
 		Amalthea model = AmaltheaLoader.loadFromFile(inputFile);
 		long latency1 = 0;
-		long x[]= {11L,57L,19L};
+		long x[]= {22L,68L,19L};
 		if (model == null) {
 			System.out.println("Error: No model loaded!");
 			return;
