@@ -82,71 +82,45 @@ public class blockWeekDemo {
 	@SuppressWarnings("unused")
 	private static final TimeType TimeType = null;
 
-	public static void main(String[] args) {
-		String modelPath = args[0];
-		String commMode = args[1];
-		
-		// example: absolute path
-		// final File inputFile = new File("d:/temp/democar.amxmi");
-		// final File outputFile = new File("d:/temp/democar_1.amxmi");
-
-		// example: relative path
-		final File inputFile = new File(modelPath);
-		
-		//final File outputFile = new File("model-output/LoadModifySave/test_1.amxmi");
-		//final File analysisLog = new File("log.app4mcLog");
-
+	public static void main(String[] args) {		
+		final File inputFile = new File("model-input/ChallengeModel_withCommImplementationTypev082.amxmi");
 		// ***** Load *****
-
 		Amalthea model = AmaltheaLoader.loadFromFile(inputFile);
 		if (model == null) {
 			System.out.println("Error: No model loaded!");
 			return;
 		}
-		
 		int runnable_count=model.getSwModel().getRunnables().size();
 		int taskCount = model.getSwModel().getTasks().size();
-		
+		int labelCount = model.getSwModel().getLabels().size();
+		System.out.println("this model creates "+ labelCount+" labels");
 		System.out.println("this model creates "+ runnable_count+" runnables");
 		System.out.println("this model creates "+ taskCount+" tasks");
+		
 		// ***** Modify *****
 		EList<Runnable> runnables = model.getSwModel().getRunnables();
 		
 		List<ProcessingUnit> processingUnits = HardwareUtil.getModulesFromHWModel(ProcessingUnit.class, model);
-		//ProcessingUnit puGlobal = processingUnits.get(0);	
 		
 		for (ProcessingUnit pu : processingUnits) {
-			//pu.getDefinition();
 			System.out.println(pu.getName()+" frequency: " + HardwareUtil.getFrequencyOfModuleInHz(pu)/1000000 + " MHz");
 		}
 		
 		EList<Task> tasks = model.getSwModel().getTasks();
-		//List<Runnable> RunnablesFromTask= SoftwareUtil.getRunnableList(tasks.get(0), null);
-		
-		/*HwFeatureCategory instructionCategory = getOrCreateInstructionsCategory(model);
-		Map<ProcessingUnit, Map<Runnable, Time>> mappingDataCustom = testmapping(model, runnables,instructionCategory);
-		Map<ProcessingUnit, Map<HwAccessElement, Map<Runnable, Time>>> runnableAccessTimeMapping = bestCaseAccessLatencyMapping(model,runnables);
-		*/
 		
 		EList<EventChain> eventList = model.getConstraintsModel().getEventChains();
-		if (args[1] == "let") {
+		System.out.println("-----------------------------------------------------");
+		System.out.println("-------------LET COMMUNICATION MODEL---------------------");
+		for(EventChain event: eventList) {
+			System.out.println("Tasks involved in the event chain: "+event.getName());
+			Time endToEndLatencies = findLETChainLatency(model, event);
+			System.out.println("end to end latency for "+event.getName()+" -->"+endToEndLatencies);
 			System.out.println("-----------------------------------------------------");
-			System.out.println("-----------------------------------------------------");
-			System.out.println("-------------LET COMMUNICATION MODEL---------------------");
-			for(EventChain event: eventList) {
-				System.out.println("Tasks involved in the event chain: "+event.getName());
-				Time endToEndLatencies = findLETChainLatency(model, event);
-				System.out.println("end to end latency for "+event.getName()+" -->"+endToEndLatencies);
-			}
-		}else if (args[1]=="implicit") {
-			System.out.println("--------------------------------------------------------------------------------");
-			System.out.println("--------------------------------------------------------------------------------");
-			System.out.println("-----------------------------IMPLICIT COMMUNICATION MODEL-------------------------------");
-			for(EventChain event: eventList) {
-				System.out.println("Tasks involved in the event chain: "+event.getName());
-				EndToEndImplicit(model, event);
-				//System.out.println("end to end latency for "+event.getName()+" -->"+endToEndLatencies);
-			}
+		}
+		System.out.println("-----------------------------IMPLICIT COMMUNICATION MODEL-------------------------------");
+		for(EventChain event: eventList) {
+			System.out.println("Tasks involved in the event chain: "+event.getName());
+			EndToEndImplicit(model, event);
 		}
 		
 		
@@ -228,7 +202,6 @@ public class blockWeekDemo {
 	//-----------------------------------------------------------------------------------------------------------------------------------------
 	//-----------------------------------------------------------------------------------------------------------------------------------------	
 	public static List<Runnable> getRunnablesFromEventChain(EventChain event,List<Runnable> fullRunnablesList) {		
-		//Set<Runnable> eventChainRunnablesList = new HashSet<Runnable>();
 		List<Runnable> eventChainRunnablesList = new ArrayList<Runnable>();
 		EList<EventChainItem> Seg = event.getSegments();
 		for (EventChainItem Se : Seg) {
@@ -239,7 +212,6 @@ public class blockWeekDemo {
 			Runnable responseRunnable = ((RunnableEvent) Response).getEntity();
 			eventChainRunnablesList.add(responseRunnable);
 		}
-		//List<Runnable> eventChainRunnablesListWithoutDuplicates = new ArrayList<>(new HashSet<>(eventChainRunnablesList));
 		List<Runnable> eventChainRunnablesListWithoutDuplicates = eventChainRunnablesList.stream().distinct().collect(Collectors.toList());
 		return eventChainRunnablesListWithoutDuplicates;
 	}
@@ -338,9 +310,8 @@ public class blockWeekDemo {
 		tasksToSum=tasksToSum.stream().distinct().collect(Collectors.toList());
 		int backwardsComm=0;
 		for (Task task: tasksToSum) {
-			System.out.println("---------------------------------------------------------------------");
+			//System.out.println("---------------------------------------------------------------------");
 			System.out.println(task.getName());
-			//cInCost(model,task);
 			List<Runnable> localRunnable = SoftwareUtil.getRunnableList(task, null);
 			ArrayList<Runnable> localRunnablefiltered = new ArrayList<Runnable>();
 			for (Runnable runnable : localRunnable) {
@@ -368,14 +339,8 @@ public class blockWeekDemo {
 		}
 		System.out.println("number of backward comms"+backwardsComm);
 		int i=0;
-		/*for(Task task: tasksToSum) {
-			if(task)
-		}*/
 		
 		Time Latency = taskPeriodSum(model, tasksToSum,multiplicities);
-		//EList<MemoryMapping> x = model.getMappingModel().getMemoryMapping();
-		//x = DeploymentUtil.getLabelMapping(Labellabel);
-		//deploymentutil.
 		
 		return Latency;
 	}
@@ -410,26 +375,18 @@ public class blockWeekDemo {
 				}
 			}
 		}
-		
-		//int cyclesForCopyinToLocal = readLabelSet.size();
 		return readingFromOutsideMemory;
 	}
 	
 	public static Time COutCost(Amalthea model,ProcessingUnit pu,Task task){
 		///Assuming memory cost of writing is 2, this method returns the Cout cost of Task task in µs/
 		Time Cout = AmaltheaFactory.eINSTANCE.createTime();
-		//Frequency freq = model.getHwModel().getSystem().getQuartzes().get(0).getFrequency();
 		long frequencyInHertz = HardwareUtil.getFrequencyOfModuleInHz(pu);
 		Set<Label> writeLabelSet = SoftwareUtil.getWriteLabelSet(task, null);
 		long timeInNanoSeconds = (long) (10e9*2*writeLabelSet.size()/frequencyInHertz);
 		BigInteger coutCount = BigInteger.valueOf(timeInNanoSeconds);
 		Cout.setValue(coutCount);
 		Cout.setUnit(TimeUnit.NS);
-/*
-		Cout.setValue((BigInteger.valueOf((long)(writeLabelSet.size() * 2 * 10e12))));
-		Cout.setUnit(TimeUnit.PS);
-		Cout.setValue(Cout.getValue().divide(BigInteger.valueOf((long) freq.getValue())));*/ 
-		//return (Time) TimeUtil.convertToTimeUnit(Cout, TimeUnit.US);
 		return Cout;
 	}
 	
@@ -452,25 +409,19 @@ public class blockWeekDemo {
 			for (Task task:taskList) {
 				List<ProcessingUnit> procunit = new ArrayList<ProcessingUnit>(DeploymentUtil.getAssignedCoreForProcess(task, model));
 				Map<Task, Integer> priorityMapping = getPriorityOfTasksOnCore(model, procunit.get(0));
-				/*for (Task taskLocal :priorityMapping.keySet()) {
-					System.out.println(taskLocal.getName()+"-->Priority "+ priorityMapping.get(taskLocal) );
-					
-				}*/
 				long responseTime = findResponseTime(model,priorityMapping,task, procunit.get(0));
 				long cInForTask = (long) Math.ceil(cInCost(model, task).getValue().longValue()/1000000);
 				long cOutForTask = (long) Math.ceil(COutCost(model,procunit.get(0),task).getValue().longValue()/1000000);
 				
 				totalLatency  = totalLatency + responseTime + cInForTask + cOutForTask;
-				System.out.println("Task: "+ task.getName()+"response time--> "+ responseTime+" ms");
-				
-				System.out.println("Task "+ task.getName()+ " Execution time-->"+ getExecTimeForProcess(model, task, procunit.get(0)));
-				
+				//System.out.println("Task: "+ task.getName()+"response time--> "+ responseTime+" ms");
+				//System.out.println("Task "+ task.getName()+ " Execution time-->"+ getExecTimeForProcess(model, task, procunit.get(0)));				
 				System.out.println("Task: "+task.getName()+"Cin cost-->"+ cInCost(model, task));
 				System.out.println("Task: "+task.getName()+"Cout cost-->"+ COutCost(model,procunit.get(0),task));
 			}
 		}
 		System.out.println("------------------------------------------------------------------------");
-		System.out.println("Total latency for "+event.getName()+" -->"+ totalLatency);
+		System.out.println("Total latency for "+event.getName()+" -->"+ totalLatency+" ms");
 		System.out.println("------------------------------------------------------------------------");
 	}
 	
@@ -517,7 +468,6 @@ public class blockWeekDemo {
 		long tj=0;
 		long wi=0;
 		long ci=(long) getExecTimeForProcess(model, task, processingUnit).getValue().longValue()/1000000;//this value is in nanoSeconds
-		//System.out.println("Ci value without unit-->"+ci);
 		long recurrenceSum=0;
 		
 		if(higherPriorityTaskList.size()==0) {
@@ -528,7 +478,6 @@ public class blockWeekDemo {
 				Time tjWithUnit = getTaskPeriod(model, highPriorityTask);
 				tjWithUnit.setUnit(TimeUnit.US);
 				tj = tjWithUnit.getValue().longValue();
-				//tj = getTaskPeriod(model, highPriorityTask).getValue().intValue();//this value is in Milliseconds
 				cj = (long) getExecTimeForProcess(model, highPriorityTask, processingUnit).getValue().longValue()/1000000;//this value is in NanoSeconds
 				recurrenceSum =  (long) Math.ceil(recurrenceSum +ci+ Math.ceil(wi/tj)*cj);
 				if(recurrenceSum==wi) {
@@ -540,14 +489,9 @@ public class blockWeekDemo {
 	}
 	public static Time getExecTimeForProcess(Amalthea model, Task task,ProcessingUnit pu) {
 		List<Runnable> Run = SoftwareUtil.getRunnableList(task, null);
-		//Time totalTime = AmaltheaFactory.eINSTANCE.createTime();
 		HwFeatureCategory instructionCategory = getOrCreateInstructionsCategory(model);
 		List<HwFeature> instructionFeature = InstructionsUtil.getFeaturesOfCategory(pu.getDefinition(),instructionCategory);
 		Time totalTime = RuntimeUtil.getExecutionTimeForProcess(task, TimeType.WCET, pu, instructionFeature, null);
-		/*for(Runnable R:Run) {
-			Time time = RuntimeUtil.getExecutionTimeForRunnable(R, TimeType.WCET, pu, instructionFeature, null);
-			totalTime = TimeUtil.addTimes(totalTime, time);
-		}*/
 		return totalTime;
 	}
 	

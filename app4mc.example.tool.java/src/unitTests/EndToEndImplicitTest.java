@@ -23,12 +23,14 @@ public class EndToEndImplicitTest {
 		Amalthea model = AmaltheaLoader.loadFromFile(inputFile);
 		long latency1 = 0;
 		long x[]= {22L,68L,19L};
+		
 		if (model == null) {
 			System.out.println("Error: No model loaded!");
 			return;
 		}
 		
 		EList<EventChain> eventList = model.getConstraintsModel().getEventChains();
+		
 		int i=0;
 		for(EventChain event: eventList)
 		{
