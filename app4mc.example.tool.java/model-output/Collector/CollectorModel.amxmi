@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<am:Amalthea xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:am="http://app4mc.eclipse.org/amalthea/0.9.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <swModel>
+    <runnables name="Runner-1" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label+A?type=Label" access="read"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label+B?type=Label" access="read"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label+C?type=Label" access="write"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label+D?type=Label" access="write"/>
+      <runnableItems xsi:type="am:RunnableCall" runnable="Service+A?type=Runnable"/>
+      <runnableItems xsi:type="am:RunnableCall" runnable="Service+B?type=Runnable"/>
+    </runnables>
+    <runnables name="Service A" callback="false" service="false"/>
+    <runnables name="Service B" callback="false" service="false"/>
+    <labels name="Label A" constant="false" bVolatile="false"/>
+    <labels name="Label B" constant="false" bVolatile="false"/>
+    <labels name="Label C" constant="false" bVolatile="false"/>
+    <labels name="Label D" constant="false" bVolatile="false"/>
+  </swModel>
+</am:Amalthea>
