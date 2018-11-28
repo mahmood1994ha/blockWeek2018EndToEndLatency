@@ -1,16 +1,12 @@
 
 /**
  ********************************************************************************
- * Copyright (c) 2018 Robert Bosch GmbH.
- * 
  * This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License 2.0
  * which is available at https://www.eclipse.org/legal/epl-2.0/
  * 
  * SPDX-License-Identifier: EPL-2.0
  * 
- * Contributors:
- *     Robert Bosch GmbH - initial API and implementation
  ********************************************************************************
  */
 
@@ -491,7 +487,7 @@ public class blockWeekDemo {
 		List<Runnable> Run = SoftwareUtil.getRunnableList(task, null);
 		HwFeatureCategory instructionCategory = getOrCreateInstructionsCategory(model);
 		List<HwFeature> instructionFeature = InstructionsUtil.getFeaturesOfCategory(pu.getDefinition(),instructionCategory);
-		Time totalTime = RuntimeUtil.getExecutionTimeForProcess(task, TimeType.WCET, pu, instructionFeature, null);
+		Time totalTime = RuntimeUtil.getExecutionTimeForProcess(task, org.eclipse.app4mc.amalthea.model.util.RuntimeUtil.TimeType.WCET, pu, instructionFeature, null);
 		return totalTime;
 	}
 	
