@@ -1,1080 +1,1272 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <am:Amalthea xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:am="http://app4mc.eclipse.org/amalthea/0.9.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <commonElements>
-    <tags name="SwcEngineController" tagType="SOFTWARE_COMPONENT"/>
-    <tags name="SwcActuators" tagType="SOFTWARE_COMPONENT"/>
-    <tags name="SwcBrakeForceArbiter" tagType="SOFTWARE_COMPONENT"/>
-    <tags name="SwcABSCalculation" tagType="SOFTWARE_COMPONENT"/>
-    <tags name="SwcSensors" tagType="SOFTWARE_COMPONENT"/>
-    <tags name="SwcSensorPostprocessing" tagType="SOFTWARE_COMPONENT"/>
-    <tags name="SwcCylNumObserver" tagType="SOFTWARE_COMPONENT"/>
-    <tags name="SwcBrakeForceCalculation" tagType="SOFTWARE_COMPONENT"/>
-    <tags name="SwcEngineSensors" tagType="SOFTWARE_COMPONENT"/>
-    <tags name="SwcInjIgnActuation" tagType="SOFTWARE_COMPONENT"/>
-  </commonElements>
   <swModel>
-    <tasks name="Task_10MS" stimuli="Timer_10MS?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="10">
+    <tasks name="Task_10ms" stimuli="periodic_10ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
       <customProperties key="priority">
-        <value xsi:type="am:StringObject" value="10"/>
+        <value xsi:type="am:StringObject" value="11"/>
       </customProperties>
       <callGraph>
-        <graphEntries xsi:type="am:CallSequence" name="">
-          <calls xsi:type="am:TaskRunnableCall" runnable="CheckPlausability?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="BrakeActuatorMonitor?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="DiagnosisArbiter?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="VehicleStateMonitor?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="BrakeForceCalculation?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="BrakeSafetyMonitor?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="ABSCalculation?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="BrakeForceActuation?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="CaliperPositionCalculation?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="BrakeActuator?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="StopLightActuator?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="BrakePedalSensorDiagnosis?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="BrakePedalSensorTranslation?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="BrakePedalSensorVoter?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="DecelerationSensorDiagnosis?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="DecelerationSensorTranslation?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="VehicleSpeedSensorDiagnosis?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="DecelerationSensorVoter?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="VehicleSpeedSensorVoter?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="VehicleSpeedSensorTranslation?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="WheelSpeedSensorTranslation?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="WheelSpeedSensorDiagnosis?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="CylNumObserver?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="WheelSpeedSensorVoter?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="ThrottleController?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="APedVoter?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="BaseFuelMass?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="ThrottleActuator?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="TotalFuelMass?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="TransientFuelMass?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="InjectionTimeActuation?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="IgnitionTiming?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="IgnitionTimeActuation?type=Runnable"/>
+        <graphEntries xsi:type="am:CallSequence" name="CS_Task_10ms">
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_10ms_0?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_10ms_1?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_10ms_2?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_10ms_3?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_10ms_4?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
         </graphEntries>
       </callGraph>
     </tasks>
-    <tasks name="Task_20MS" stimuli="Timer_20MS?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="10">
+    <tasks name="Task_20ms" stimuli="periodic_20ms?type=PeriodicStimulus" preemption="cooperative" multipleTaskActivationLimit="1">
       <customProperties key="priority">
-        <value xsi:type="am:StringObject" value="10"/>
+        <value xsi:type="am:StringObject" value="9"/>
       </customProperties>
       <callGraph>
-        <graphEntries xsi:type="am:CallSequence" name="">
-          <calls xsi:type="am:TaskRunnableCall" runnable="BrakeForceArbiter?type=Runnable"/>
+        <graphEntries xsi:type="am:CallSequence" name="CS_Task_20ms">
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_20ms_0?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_20ms_1?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_20ms_2?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_20ms_3?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_20ms_4?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
         </graphEntries>
       </callGraph>
     </tasks>
-    <tasks name="Task_5MS" stimuli="Timer_5MS?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="10">
+    <tasks name="Task_5ms" stimuli="periodic_5ms?type=PeriodicStimulus" preemption="preemptive" multipleTaskActivationLimit="1">
       <customProperties key="priority">
-        <value xsi:type="am:StringObject" value="10"/>
+        <value xsi:type="am:StringObject" value="12"/>
       </customProperties>
       <callGraph>
-        <graphEntries xsi:type="am:CallSequence" name="">
-          <calls xsi:type="am:TaskRunnableCall" runnable="EcuBrakeActuator?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="EcuStopLightActuator?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="EcuBrakePedalSensor?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="EcuDecelerationSensor?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="EcuVehicleSpeedSensor?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="EcuWheelSpeedSensor?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="APedSensor?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="ThrottleSensor?type=Runnable"/>
-          <calls xsi:type="am:TaskRunnableCall" runnable="MassAirFlowSensor?type=Runnable"/>
+        <graphEntries xsi:type="am:CallSequence" name="CS_Task_5ms">
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_5ms_0?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_5ms_1?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_5ms_2?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_5ms_3?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall" runnable="Runnable_5ms_4?type=Runnable"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
+          <calls xsi:type="am:TaskRunnableCall"/>
         </graphEntries>
       </callGraph>
     </tasks>
-    <runnables name="ABSCalculation" tags="SwcABSCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="VotedDecelerationRate?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="VotedVehicleSpeed?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="VotedWheelSpeed?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="ArbitratedBrakeForce?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_10ms_0" activations="periodic_10ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_4071?type=Label" access="read" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="2.0"/>
+        </statistic>
+      </runnableItems>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_1867?type=Label" access="read" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="5.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="427"/>
+              <upperBound xsi:type="am:LongObject" value="561"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="442"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="ABSActivation?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="ABSMode?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="APedSensor" tags="SwcEngineSensors?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="APedSensor1Voltage?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="APedSensor2Voltage?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_1867?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="APedPosition1?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="APedPosition2?type=Label" access="write" dataStability="inherited"/>
     </runnables>
-    <runnables name="APedVoter" tags="SwcEngineController?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="APedPosition1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="APedPosition2?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
+    <runnables name="Runnable_20ms_0" activations="periodic_20ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_4881?type=Label" access="read" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="4.0"/>
+        </statistic>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="VotedAPedPosition?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="BaseFuelMass" tags="SwcEngineController?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="MassAirFlow?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_6829?type=Label" access="read" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="5.0"/>
+        </statistic>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="BaseFuelMassPerStroke?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="MAFRate?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="BrakeActuator" tags="SwcABSCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="CaliperPosition?type=Label" access="read" dataStability="inherited"/>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeForceVoltage?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="BrakeActuatorMonitor" tags="SwcBrakeForceCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeForce?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeForceFeedback?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="927"/>
+              <upperBound xsi:type="am:LongObject" value="12478"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="7557"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
     </runnables>
-    <runnables name="BrakeForceActuation" tags="SwcABSCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="ABSActivation?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="ABSMode?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_10ms_1" activations="periodic_10ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2655?type=Label" access="read" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="3.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="1739"/>
+              <upperBound xsi:type="am:LongObject" value="3253"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="2502"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeForce?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeForceCurrent?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_1198?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_4071?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="BrakeForceArbiter" tags="SwcBrakeForceArbiter?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="CalculatedBrakeForce?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeSafetyState?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_10ms_2" activations="periodic_10ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_448?type=Label" access="read" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="4.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="143"/>
+              <upperBound xsi:type="am:LongObject" value="1273"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="670"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="ArbitratedBrakeForce?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_3103?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="BrakeForceCalculation" tags="SwcBrakeForceCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPosition?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeForceFeedback?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="ArbitratedDiagnosisRequest?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="MonitoredVehicleState?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeSafetyLevel?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_10ms_3" activations="periodic_10ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_1098?type=Label" access="read" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="3.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="12545"/>
+              <upperBound xsi:type="am:LongObject" value="23334"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="15488"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="CalculatedBrakeForce?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeMonitorLevel?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_87?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="BrakePedalSensorDiagnosis" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPositionVoltage1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPositionVoltage2?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_20ms_1" activations="periodic_20ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2494?type=Label" access="read" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="4.0"/>
+        </statistic>
+      </runnableItems>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_3000?type=Label" access="read" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="3.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="15175"/>
+              <upperBound xsi:type="am:LongObject" value="22953"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="20142"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
+      <runnableItems xsi:type="am:LabelAccess" access="write" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="BrakePedalSensorTranslation" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPositionVoltage1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPositionVoltage2?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_10ms_4" activations="periodic_10ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2557?type=Label" access="read" implementation="explicit">
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="4.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="1846"/>
+              <upperBound xsi:type="am:LongObject" value="9278"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="6888"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPosition1?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPosition2?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_1565?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_448?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="BrakePedalSensorVoter" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPosition1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPosition2?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_20ms_2" activations="periodic_20ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2377?type=Label" access="read" implementation="explicit">
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="5.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="4685"/>
+              <upperBound xsi:type="am:LongObject" value="8086"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="5179"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="VotedBrakePedalPosition?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_3000?type=Label" access="write" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="BrakeSafetyMonitor" tags="SwcBrakeForceCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPosition?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeForceFeedback?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="ArbitratedDiagnosisRequest?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="MonitoredVehicleState?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeMonitorLevel?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_20ms_3" activations="periodic_20ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2699?type=Label" access="read" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="5.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="86"/>
+              <upperBound xsi:type="am:LongObject" value="640"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="431"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeSafetyLevel?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeSafetyState?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2844?type=Label" access="write" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="CaliperPositionCalculation" tags="SwcABSCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="CaliperPosition?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeForceCurrent?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_5ms_0" activations="periodic_5ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_744?type=Label" access="read" implementation="explicit">
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="3.0"/>
+        </statistic>
+      </runnableItems>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_1394?type=Label" access="read" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="3.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="4702"/>
+              <upperBound xsi:type="am:LongObject" value="13442"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="10900"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="CaliperPosition?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2492?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="CheckPlausability" tags="SwcBrakeForceCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="VotedBrakePedalPosition?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_20ms_4" activations="periodic_20ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2832?type=Label" access="read" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="2.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="4236"/>
+              <upperBound xsi:type="am:LongObject" value="7538"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="6600"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPosition?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_1837?type=Label" access="write" implementation="implicit">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="IMPLICIT"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="CylNumObserver" tags="SwcCylNumObserver?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="CylinderNumber?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_5ms_1" activations="periodic_5ms?type=PeriodicActivation" callback="false" service="false">
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="1766"/>
+              <upperBound xsi:type="am:LongObject" value="2572"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="2097"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="TriggeredCylinderNumber?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_9129?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="DecelerationSensorDiagnosis" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationVoltage1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationVoltage2?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_5ms_2" activations="periodic_5ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_285?type=Label" access="read" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="2.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="1577"/>
+              <upperBound xsi:type="am:LongObject" value="4105"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="2656"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_285?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="DecelerationSensorTranslation" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationVoltage1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationVoltage2?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_5ms_3" activations="periodic_5ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2145?type=Label" access="read" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="2.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="471"/>
+              <upperBound xsi:type="am:LongObject" value="2806"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="2126"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationRate1?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationRate2?type=Label" access="write" dataStability="inherited"/>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_1394?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
+      </runnableItems>
     </runnables>
-    <runnables name="DecelerationSensorVoter" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationRate1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationRate2?type=Label" access="read" dataStability="inherited"/>
+    <runnables name="Runnable_5ms_4" activations="periodic_5ms?type=PeriodicActivation" callback="false" service="false">
+      <runnableItems xsi:type="am:LabelAccess" access="read" implementation="explicit">
+        <statistic>
+          <value xsi:type="am:SingleValueStatistic" value="2.0"/>
+        </statistic>
+      </runnableItems>
       <runnableItems xsi:type="am:ExecutionNeed">
         <default key="Instructions">
           <value xsi:type="am:NeedDeviation">
             <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
+              <lowerBound xsi:type="am:LongObject" value="2488"/>
+              <upperBound xsi:type="am:LongObject" value="3965"/>
+              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="5.0E-4">
+                <mean xsi:type="am:LongObject" value="2698"/>
               </distribution>
             </deviation>
           </value>
         </default>
       </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="VotedDecelerationRate?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="DiagnosisArbiter" tags="SwcBrakeForceCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="ArbitratedDiagnosisRequest?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
+      <runnableItems xsi:type="am:LabelAccess" data="Label_2070?type=Label" access="write" implementation="timed">
+        <customProperties key="COMMUNINCATION_TYPE">
+          <value xsi:type="am:StringObject" value="TIMED"/>
+        </customProperties>
       </runnableItems>
     </runnables>
-    <runnables name="EcuBrakeActuator" tags="SwcActuators?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeForceVoltage?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-    </runnables>
-    <runnables name="EcuBrakePedalSensor" tags="SwcSensors?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="144000"/>
-              <upperBound xsi:type="am:LongObject" value="176000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="160000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPositionVoltage1?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakePedalPositionVoltage2?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="EcuDecelerationSensor" tags="SwcSensors?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="144000"/>
-              <upperBound xsi:type="am:LongObject" value="176000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="160000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationVoltage1?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="DecelerationVoltage2?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="EcuStopLightActuator" tags="SwcActuators?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeApplication?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-    </runnables>
-    <runnables name="EcuVehicleSpeedSensor" tags="SwcSensors?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeedVoltage1?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeedVoltage2?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="EcuWheelSpeedSensor" tags="SwcSensors?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeedVoltage1?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeedVoltage2?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="IgnitionTimeActuation" tags="SwcInjIgnActuation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="TriggeredCylinderNumber?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime2?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime3?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime4?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime5?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime6?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime7?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime8?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="IgnitionTiming" tags="SwcEngineController?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="MAFRate?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="IgnitionTime?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="InjectionTimeActuation" tags="SwcInjIgnActuation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="TriggeredCylinderNumber?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="TotalFuelMassPerStroke?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="InjectionTime1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="InjectionTime2?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="InjectionTime3?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="InjectionTime4?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="InjectionTime5?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="InjectionTime6?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="InjectionTime7?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="InjectionTime8?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-    </runnables>
-    <runnables name="MassAirFlowSensor" tags="SwcEngineSensors?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="MAFSensorVoltage?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="MassAirFlow?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="StopLightActuator" tags="SwcABSCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="ArbitratedBrakeForce?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="BrakeApplication?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="ThrottleActuator" tags="SwcEngineController?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="DesiredThrottlePosition?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="DesiredThrottlePositionVoltage?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="ThrottleController" tags="SwcEngineController?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="VotedAPedPosition?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="ThrottlePosition?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="DesiredThrottlePosition?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="ThrottleSensor" tags="SwcEngineSensors?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="ThrottleSensor1Voltage?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="ThrottleSensor2Voltage?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="ThrottlePosition?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="TotalFuelMass" tags="SwcEngineController?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="TransientFuelMassPerStroke?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="TotalFuelMassPerStroke?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="TransientFuelMass" tags="SwcEngineController?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="BaseFuelMassPerStroke?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="TransientFuelMassPerStroke?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="VehicleSpeedSensorDiagnosis" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeedVoltage1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeedVoltage2?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-    </runnables>
-    <runnables name="VehicleSpeedSensorTranslation" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeedVoltage1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeedVoltage2?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeed1?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeed2?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="VehicleSpeedSensorVoter" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeed1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="VehicleSpeed2?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="VotedVehicleSpeed?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="VehicleStateMonitor" tags="SwcBrakeForceCalculation?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="MonitoredVehicleState?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="WheelSpeedSensorDiagnosis" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeedVoltage1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeedVoltage2?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-    </runnables>
-    <runnables name="WheelSpeedSensorTranslation" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeedVoltage1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeedVoltage2?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeed1?type=Label" access="write" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeed2?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <runnables name="WheelSpeedSensorVoter" tags="SwcSensorPostprocessing?type=Tag" callback="false" service="false">
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeed1?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:LabelAccess" data="WheelSpeed2?type=Label" access="read" dataStability="inherited"/>
-      <runnableItems xsi:type="am:ExecutionNeed">
-        <default key="Instructions">
-          <value xsi:type="am:NeedDeviation">
-            <deviation>
-              <lowerBound xsi:type="am:LongObject" value="72000"/>
-              <upperBound xsi:type="am:LongObject" value="88000"/>
-              <distribution xsi:type="am:WeibullEstimators" pRemainPromille="0.5">
-                <mean xsi:type="am:LongObject" value="80000"/>
-              </distribution>
-            </deviation>
-          </value>
-        </default>
-      </runnableItems>
-      <runnableItems xsi:type="am:LabelAccess" data="VotedWheelSpeed?type=Label" access="write" dataStability="inherited"/>
-    </runnables>
-    <labels name="ABSActivation" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="ABSMode" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="APedPosition1" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="APedPosition2" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="APedSensor1Voltage" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_87" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="APedSensor2Voltage" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_285" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
+      <size value="8" unit="bit"/>
+    </labels>
+    <labels name="Label_448" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
+      <size value="8" unit="bit"/>
+    </labels>
+    <labels name="Label_744" constant="false" bVolatile="false" stabilityLevel="runnable">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="EXPLICIT"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="ArbitratedBrakeForce" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="ArbitratedDiagnosisRequest" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="BaseFuelMassPerStroke" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_1098" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="BrakeApplication" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_1198" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="8" unit="bit"/>
     </labels>
-    <labels name="BrakeForce" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_1394" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="8" unit="bit"/>
     </labels>
-    <labels name="BrakeForceCurrent" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_1565" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="8" unit="bit"/>
     </labels>
-    <labels name="BrakeForceFeedback" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_1837" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="8" unit="bit"/>
     </labels>
-    <labels name="BrakeForceVoltage" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_1867" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
+      <size value="8" unit="bit"/>
+    </labels>
+    <labels name="Label_2070" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
+      <size value="8" unit="bit"/>
+    </labels>
+    <labels name="Label_2145" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
+      <size value="8" unit="bit"/>
+    </labels>
+    <labels name="Label_2377" constant="false" bVolatile="false" stabilityLevel="runnable">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="EXPLICIT"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="BrakeMonitorLevel" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="BrakePedalPosition" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="BrakePedalPosition1" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="BrakePedalPosition2" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="BrakePedalPositionVoltage1" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_2492" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="BrakePedalPositionVoltage2" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="BrakeSafetyLevel" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_2494" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="8" unit="bit"/>
     </labels>
-    <labels name="BrakeSafetyState" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_2557" constant="false" bVolatile="false" stabilityLevel="runnable">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="EXPLICIT"/>
+      </customProperties>
       <size value="8" unit="bit"/>
     </labels>
-    <labels name="CalculatedBrakeForce" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_2655" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
+      <size value="16" unit="bit"/>
+    </labels>
+    <labels name="Label_2699" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
+      <size value="1024" unit="bit"/>
+    </labels>
+    <labels name="Label_2832" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="8" unit="bit"/>
     </labels>
-    <labels name="CaliperPosition" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_2844" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="8" unit="bit"/>
     </labels>
-    <labels name="CylinderNumber" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="DecelerationRate1" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="DecelerationRate2" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="DecelerationVoltage1" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_3000" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="DecelerationVoltage2" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_3103" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="DesiredThrottlePosition" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_4071" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="DesiredThrottlePositionVoltage" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="IgnitionTime" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="IgnitionTime1" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_4881" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="IgnitionTime2" constant="false" bVolatile="false" dataStability="noProtection">
+    <labels name="Label_6829" constant="true" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
+      <size value="32" unit="bit"/>
+    </labels>
+    <labels name="Label_9129" constant="false" bVolatile="false" stabilityLevel="process">
+      <customProperties key="COMMUNINCATION_TYPE">
+        <value xsi:type="am:StringObject" value="COMMUNICATION_BUFFERED"/>
+      </customProperties>
       <size value="16" unit="bit"/>
     </labels>
-    <labels name="IgnitionTime3" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="IgnitionTime4" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="IgnitionTime5" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="IgnitionTime6" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="IgnitionTime7" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="IgnitionTime8" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="InjectionTime1" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="InjectionTime2" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="InjectionTime3" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="InjectionTime4" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="InjectionTime5" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="InjectionTime6" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="InjectionTime7" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="InjectionTime8" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="MAFRate" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="MAFSensorVoltage" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="MassAirFlow" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="MonitoredVehicleState" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="ThrottlePosition" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="ThrottleSensor1Voltage" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="ThrottleSensor2Voltage" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="TotalFuelMassPerStroke" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="TransientFuelMassPerStroke" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="TriggeredCylinderNumber" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="VehicleSpeed1" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="VehicleSpeed2" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="VehicleSpeedVoltage1" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="VehicleSpeedVoltage2" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="VotedAPedPosition" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="VotedBrakePedalPosition" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="VotedDecelerationRate" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="VotedVehicleSpeed" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="VotedWheelSpeed" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="WheelSpeed1" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="WheelSpeed2" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="8" unit="bit"/>
-    </labels>
-    <labels name="WheelSpeedVoltage1" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
-    <labels name="WheelSpeedVoltage2" constant="false" bVolatile="false" dataStability="noProtection">
-      <size value="16" unit="bit"/>
-    </labels>
+    <activations xsi:type="am:PeriodicActivation" name="periodic_10ms">
+      <min value="10" unit="ms"/>
+      <max value="10" unit="ms"/>
+    </activations>
+    <activations xsi:type="am:PeriodicActivation" name="periodic_20ms">
+      <min value="20" unit="ms"/>
+      <max value="20" unit="ms"/>
+    </activations>
+    <activations xsi:type="am:PeriodicActivation" name="periodic_5ms">
+      <min value="5" unit="ms"/>
+      <max value="5" unit="ms"/>
+    </activations>
   </swModel>
   <hwModel>
     <definitions xsi:type="am:MemoryDefinition" name="EpiLocalRam_Type">
@@ -1087,33 +1279,36 @@
     </definitions>
     <definitions xsi:type="am:ProcessingUnitDefinition" name="Epiphany-Type"/>
     <definitions xsi:type="am:ProcessingUnitDefinition" name="Zynq-Z-7010-Type" puType="Accelerator"/>
-    <featureCategories name="Instructions" featureType="performance">
-      <features name="IPC_1" value="1.0"/>
+    <featureCategories name="featureCategoyEpi" featureType="performance">
+      <features name="IPC_1.0" value="1.0"/>
+    </featureCategories>
+    <featureCategories name="featureCategoryZynq" featureType="performance">
+      <features name="IPC_1.0" value="1.0"/>
     </featureCategories>
     <structures name="AdaptevaParallella" structureType="System">
       <structures name="ParallellaBoard" structureType="ECU">
         <structures name="Zyng Z-7010" structureType="SoC">
-          <modules xsi:type="am:ProcessingUnit" name="Zyng-A9-C1" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Zynq-Z-7010-Type?type=ProcessingUnitDefinition"/>
-          <modules xsi:type="am:ProcessingUnit" name="Zyng-A9-C2" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Zynq-Z-7010-Type?type=ProcessingUnitDefinition"/>
+          <modules xsi:type="am:ProcessingUnit" name="Zyng-A9-C1" frequencyDomain="700MHz?type=FrequencyDomain" definition="Zynq-Z-7010-Type?type=ProcessingUnitDefinition"/>
+          <modules xsi:type="am:ProcessingUnit" name="Zyng-A9-C2" frequencyDomain="700MHz?type=FrequencyDomain" definition="Zynq-Z-7010-Type?type=ProcessingUnitDefinition"/>
         </structures>
         <structures name="Epiphany" structureType="SoC">
-          <modules xsi:type="am:Memory" name="Epi_Mem_0x0" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_1x0" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_2x0" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_3x0" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_0x1" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_1x1" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_2x1" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_3x1" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_0x2" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_1x2" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_2x2" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_3x2" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_0x3" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_1x3" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_2x3" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:Memory" name="Epi_Mem_3x3" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_0x0" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:Memory" name="Epi_Mem_0x0" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_1x0" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_2x0" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_3x0" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_0x1" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_1x1" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_2x1" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_3x1" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_0x2" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_1x2" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_2x2" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_3x2" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_0x3" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_1x3" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_2x3" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:Memory" name="Epi_Mem_3x3" frequencyDomain="700MHz?type=FrequencyDomain" definition="EpiLocalRam_Type?type=MemoryDefinition"/>
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_0x0" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C0x0-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="8"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="1"/>
@@ -1179,7 +1374,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="10"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_1x0" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_1x0" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C1x0-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="10"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="3"/>
@@ -1245,7 +1440,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="9"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_2x0" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_2x0" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C2x0-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="11"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="4"/>
@@ -1311,7 +1506,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="7"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_3x0" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_3x0" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C3x0-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="13"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="6"/>
@@ -1377,7 +1572,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="6"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_0x1" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_0x1" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C0x1-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="10"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="3"/>
@@ -1443,7 +1638,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="9"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_1x1" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_1x1" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C1x1-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="11"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="4"/>
@@ -1509,7 +1704,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="7"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_2x1" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_2x1" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C2x1-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="13"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="6"/>
@@ -1575,7 +1770,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="6"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_3x1" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_3x1" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C3x1-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="14"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="7"/>
@@ -1641,7 +1836,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="4"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_0x2" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_0x2" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C0x2-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="11"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="4"/>
@@ -1707,7 +1902,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="7"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_1x2" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_1x2" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C1x2-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="13"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="6"/>
@@ -1773,7 +1968,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="6"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_2x2" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_2x2" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C2x2-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="14"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="7"/>
@@ -1839,7 +2034,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="4"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_3x2" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_3x2" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C3x2-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="16"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="9"/>
@@ -1905,7 +2100,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="3"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_0x3" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_0x3" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C0x3-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="13"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="6"/>
@@ -1971,7 +2166,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="6"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_1x3" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_1x3" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C1x3-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="14"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="7"/>
@@ -2037,7 +2232,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="4"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_2x3" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_2x3" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C2x3-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="16"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="9"/>
@@ -2103,7 +2298,7 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="3"/>
             </accessElements>
           </modules>
-          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_3x3" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
+          <modules xsi:type="am:ProcessingUnit" name="Epi_Core_3x3" frequencyDomain="700MHz?type=FrequencyDomain" definition="Epiphany-Type?type=ProcessingUnitDefinition">
             <accessElements name="Path_C3x3-M0x0" destination="Epi_Mem_0x0?type=Memory">
               <readLatency xsi:type="am:LatencyConstant" cycles="17"/>
               <writeLatency xsi:type="am:LatencyConstant" cycles="10"/>
@@ -2169,44 +2364,44 @@
               <writeLatency xsi:type="am:LatencyConstant" cycles="1"/>
             </accessElements>
           </modules>
+          <modules xsi:type="am:ConnectionHandler" name="" frequencyDomain="700MHz?type=FrequencyDomain">
+            <definition href="amlt:/#GenericCrossbarSwitch?type=ConnectionHandlerDefinition"/>
+          </modules>
         </structures>
-        <modules xsi:type="am:Memory" name="1GB_DDR3L" frequencyDomain="1GHz-Default?type=FrequencyDomain" definition="1GB_DDR3L_Type?type=MemoryDefinition"/>
+        <modules xsi:type="am:Memory" name="1GB_DDR3L" frequencyDomain="700MHz?type=FrequencyDomain" definition="1GB_DDR3L_Type?type=MemoryDefinition"/>
       </structures>
     </structures>
-    <domains xsi:type="am:FrequencyDomain" name="1GHz-Default" clockGating="false">
-      <defaultValue value="1.0" unit="GHz"/>
+    <domains xsi:type="am:FrequencyDomain" name="700MHz" clockGating="false">
+      <defaultValue value="700.0" unit="MHz"/>
     </domains>
   </hwModel>
   <stimuliModel>
-    <stimuli xsi:type="am:PeriodicStimulus" name="Timer_10MS">
+    <stimuli xsi:type="am:PeriodicStimulus" name="periodic_10ms">
       <offset value="0" unit="ms"/>
       <recurrence value="10" unit="ms"/>
     </stimuli>
-    <stimuli xsi:type="am:PeriodicStimulus" name="Timer_20MS">
+    <stimuli xsi:type="am:PeriodicStimulus" name="periodic_20ms">
       <offset value="0" unit="ms"/>
       <recurrence value="20" unit="ms"/>
     </stimuli>
-    <stimuli xsi:type="am:PeriodicStimulus" name="Timer_5MS">
+    <stimuli xsi:type="am:PeriodicStimulus" name="periodic_5ms">
       <offset value="0" unit="ms"/>
       <recurrence value="5" unit="ms"/>
     </stimuli>
   </stimuliModel>
+  <eventModel>
+    <events xsi:type="am:RunnableEvent" name="task_5msA" description="" eventType="start" entity="Runnable_5ms_0?type=Runnable" process="Task_5ms?type=Task"/>
+    <events xsi:type="am:RunnableEvent" name="task_10msB" description="" eventType="start" entity="Runnable_10ms_0?type=Runnable" process="Task_10ms?type=Task"/>
+    <events xsi:type="am:RunnableEvent" name="task_20msC" eventType="start" entity="Runnable_20ms_0?type=Runnable" process="Task_20ms?type=Task"/>
+  </eventModel>
   <constraintsModel>
-    <requirements xsi:type="am:ProcessRequirement" name="Deadline_05" severity="Critical" process="Task_5MS?type=Task">
-      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
-        <limitValue value="5" unit="ms"/>
-      </limit>
-    </requirements>
-    <requirements xsi:type="am:ProcessRequirement" name="Deadline_10" severity="Critical" process="Task_10MS?type=Task">
-      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
-        <limitValue value="10" unit="ms"/>
-      </limit>
-    </requirements>
-    <requirements xsi:type="am:ProcessRequirement" name="Deadline_20" severity="Critical" process="Task_20MS?type=Task">
-      <limit xsi:type="am:TimeRequirementLimit" limitType="UpperLimit" metric="ResponseTime">
-        <limitValue value="20" unit="ms"/>
-      </limit>
-    </requirements>
+    <eventChains name="">
+      <segments xsi:type="am:EventChainContainer">
+        <eventChain name="" stimulus="task_5msA?type=RunnableEvent" response="task_10msB?type=RunnableEvent"/>
+      </segments>
+      <segments xsi:type="am:EventChainContainer">
+        <eventChain name="" stimulus="task_10msB?type=RunnableEvent" response="task_20msC?type=RunnableEvent"/>
+      </segments>
+    </eventChains>
   </constraintsModel>
-  <mappingModel/>
 </am:Amalthea>

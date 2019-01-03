@@ -85,13 +85,14 @@ public class LoadModifySaveExample {
 		// final File outputFile = new File("d:/temp/democar_1.amxmi");
 
 		// example: relative path
-		final File inputFile = new File("model-input/ChallengeModel_withCommImplementationTypev082.amxmi");
+		final File inputFile = new File("model-input/modified11.amxmi");
 		//final File outputFile = new File("model-output/LoadModifySave/test_1.amxmi");
 		//final File analysisLog = new File("log.app4mcLog");
 
 		// ***** Load *****
-
+		System.out.print("got here");
 		Amalthea model = AmaltheaLoader.loadFromFile(inputFile);
+		System.out.print("2 got here 2");
 		if (model == null) {
 			System.out.println("Error: No model loaded!");
 			return;
@@ -127,7 +128,6 @@ public class LoadModifySaveExample {
 			for (Label label1: writelabels) {
 				System.out.println("				*" + label1.getName()+" ,"+label1.getSize()+"s");
 			}
-			
 		}
 		EList<Task> tasks = model.getSwModel().getTasks();
 		//List<Runnable> RunnablesFromTask= SoftwareUtil.getRunnableList(tasks.get(0), null);
@@ -219,6 +219,7 @@ public class LoadModifySaveExample {
 			for (Runnable eventRunnable:runnablesFromEventChain) {
 				for (Runnable mapRunnable : fullRunnables ) {
 					boolean EqualityCondition = eventRunnable.getName().equals(mapRunnable.getName());					
+					//EqualityCondition = eventRunnable.equals(mapRunnable);
 					if (EqualityCondition) {
 						innerMap.put(mapRunnable, fullMapping.get(procUnit).get(mapRunnable));
 						mapFromRunnable.put(procUnit, innerMap);
